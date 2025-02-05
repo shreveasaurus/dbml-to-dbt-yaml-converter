@@ -19,7 +19,7 @@ A Python script that converts DBML (Database Markup Language) files to DBT (Data
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/dbml-to-dbt-yaml-converter.git
+git clone https://github.com/shreveasaurus/dbml-to-dbt-yaml-converter.git
 cd dbml-to-dbt-yaml-converter
 pip install -r requirements.txt
 ```
