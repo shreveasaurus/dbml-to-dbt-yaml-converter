@@ -11,7 +11,7 @@ def parse_dbml(dbml_content):
         table_content = table_match.group(2)
 
         # Extract table description
-        table_desc_match = re.search(r'note:\s*"([^"]*)"', table_content.split('\n')[0])
+        table_desc_match = re.search(r'note:\s*"([^"]*)"', table_content)
         table_description = table_desc_match.group(1) if table_desc_match else None
 
         # Parse columns
@@ -42,7 +42,7 @@ def parse_dbml(dbml_content):
 
             columns.append(column_entry)
 
-        # Create table entry
+        # Create table entry matching test expectations
         table_entry = {
             'version': 2,
             'models': [{
@@ -51,7 +51,7 @@ def parse_dbml(dbml_content):
             }]
         }
 
-        # Add table description if exists
+        # Add table description to models
         if table_description:
             table_entry['models'][0]['description'] = table_description
 
