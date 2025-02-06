@@ -19,6 +19,9 @@ Table dim_address {
 
         self.assertEqual(len(tables), 1)
         self.assertEqual(tables['dim_address']['models'][0]['name'], 'dim_address')
+
+        # Check description exists and matches
+        self.assertIn('description', tables['dim_address']['models'][0])
         self.assertEqual(tables['dim_address']['models'][0]['description'], 'Represents unique addresses')
 
         columns = tables['dim_address']['models'][0]['columns']
@@ -50,6 +53,7 @@ Table dim_address {
 
             self.assertEqual(yaml_content['version'], 2)
             self.assertEqual(yaml_content['models'][0]['name'], 'dim_address')
+            self.assertEqual(yaml_content['models'][0]['description'], 'Represents unique addresses')
 
 if __name__ == '__main__':
     unittest.main()
